@@ -4,13 +4,14 @@ import com.codeborne.selenide.Configuration;
 import org.testng.ITestContext;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import pages.*;
 import steps.LoginSteps;
 import steps.ProjectSteps;
 
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
-
+@Listeners(TestListener.class)
 public class BaseTest {
 
     protected LoginPage loginPage;
@@ -28,7 +29,7 @@ public class BaseTest {
     public void setup(ITestContext context) {
         Configuration.baseUrl = "https://app.qase.io/";
         Configuration.browser = "chrome";
-        Configuration.headless = false;
+        Configuration.headless = true;
         Configuration.clickViaJs = true;
         Configuration.timeout = 1000;
 
