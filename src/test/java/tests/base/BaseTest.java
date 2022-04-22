@@ -6,8 +6,10 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import pages.*;
+import steps.CaseSteps;
 import steps.LoginSteps;
 import steps.ProjectSteps;
+import steps.SuiteSteps;
 
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
@@ -21,6 +23,10 @@ public class BaseTest {
     protected ProjectSteps projectStep;
     protected ProjectPage projectPage;
     protected NavigationPage navigationPage;
+    protected SuiteModal suiteModal;
+    protected CaseModal caseModal;
+    protected SuiteSteps suiteSteps;
+    protected CaseSteps caseSteps;
 
     public static final String USER = "borodich.timofei@gmail.com";
     public static final String PASSWORD = "kazantip";
@@ -40,7 +46,11 @@ public class BaseTest {
         projectStep = new ProjectSteps();
         projectPage = new ProjectPage();
         navigationPage = new NavigationPage();
-
+        suiteModal = new SuiteModal();
+        caseModal = new CaseModal();
+        suiteSteps = new SuiteSteps();
+        caseSteps = new CaseSteps();
+//
 //        context.setAttribute("driver", getWebDriver());
     }
 

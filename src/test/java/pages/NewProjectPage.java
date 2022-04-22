@@ -39,7 +39,7 @@ public class NewProjectPage extends BasePage {
 
     @Step("Click check box 'Public'")
     public NewProjectPage checkBoxPublic() {
-        log.info("CClick check box 'Public'");
+        log.info("Click check box 'Public'");
         $(CHECK_BOX_PUBLIC).click();
         return this;
     }

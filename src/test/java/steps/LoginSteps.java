@@ -11,7 +11,6 @@ public class LoginSteps {
     LoginPage loginPage;
     ProjectsList projectsList;
 
-
     public LoginSteps() {
         loginPage = new LoginPage();
         projectsList = new ProjectsList();

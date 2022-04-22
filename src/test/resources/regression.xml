@@ -17,4 +17,10 @@
             </class>
         </classes>
     </test>
+    <test name="NewSuite">
+        <classes>
+            <class name="tests.SuiteTest">
+            </class>
+        </classes>
+    </test>
 </suite>

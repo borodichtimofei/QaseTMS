@@ -37,4 +37,11 @@ public class ProjectsList extends BasePage {
         $$("[class=defect-title]").findBy(Condition.text(name)).shouldBe(Condition.visible);
         return $$("[class=defect-title]").findBy(Condition.text(name)).isDisplayed();
     }
+
+    @Step("Click project with name: {name}")
+    public ProjectPage clickProject(String name) {
+        log.info("Click project with name: {}", name);
+        $$("[class=defect-title]").findBy(Condition.text(name)).click();
+        return new ProjectPage();
+    }
 }

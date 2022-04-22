@@ -11,6 +11,8 @@ import static com.codeborne.selenide.Selenide.$;
 public class ProjectPage extends BasePage {
 
     public static final By REPOSITORY = By.xpath("//p[contains(@class, 'header')]");
+    public static final By CREATE_SUITE = By.id("create-suite-button");
+    public static final By CREATE_CASE = By.id("create-case-button");
 
     @Override
     public ProjectPage isPageOpened() {
@@ -24,4 +26,21 @@ public class ProjectPage extends BasePage {
         log.info("Get project name");
         return $(REPOSITORY).getText();
     }
+
+    @Step("Click on button 'Suite'")
+    public SuiteModal clickSuite() {
+        log.info("Click on button 'Suite'");
+        $(CREATE_SUITE).click();
+        return new SuiteModal();
+    }
+
+    @Step("Click on button 'Case'")
+    public CaseModal clickCase() {
+        log.info("Click on button 'Case'");
+        $(CREATE_CASE).click();
+        return new CaseModal();
+    }
+
 }
+
+//label[text()='Description']
