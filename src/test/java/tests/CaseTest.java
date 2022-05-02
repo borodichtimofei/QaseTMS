@@ -11,7 +11,7 @@ public class CaseTest extends BaseTest {
     @Test(description = "Create case")
     public void createCase() {
         Project project = ProjectsFactory.getProject();
-        loginSteps.login(USER, PASSWORD);
+        loginSteps.login(user, password);
         projectStep.createProject(project);
         Case aCase = Case.builder()
                 .title("Test")

@@ -25,9 +25,9 @@ public class SuiteModal extends BasePage {
 
     @Step("Input suite information: {suite}")
     public SuiteModal create(Suite suite) {
-        log.info("Input suite name: {}, select parent suite: {}", suite.getSuiteName(), suite.getParentSuite());
-        $(SUITE_NAME).sendKeys(suite.getSuiteName());
-        new DropDown("Parent suite").select(suite.getParentSuite());
+        log.info("Input suite name: {}, select parent suite: {}", suite.getName(), suite.getParent());
+        $(SUITE_NAME).sendKeys(suite.getName());
+        new DropDown("Parent suite").select(suite.getParent());
         return this;
     }
 

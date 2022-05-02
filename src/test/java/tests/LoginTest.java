@@ -7,6 +7,6 @@ public class LoginTest extends BaseTest {
 
     @Test(description = "Log in")
     public void test() {
-        loginSteps.login(USER, PASSWORD);
+        loginSteps.login(user, password);
     }
 }

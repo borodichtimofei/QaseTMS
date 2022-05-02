@@ -23,7 +23,7 @@ public class CaseModal extends BasePage {
     }
 
     public CaseModal create(Case aCase) {
-        $(CASE_TITLE).sendKeys("Test");
+        $(CASE_TITLE).sendKeys(aCase.getTitle());
         new DropDown("Status").select(aCase.getStatus());
         new DropDown("Suite").select(aCase.getSuite());
         new DropDown("Severity").select(aCase.getSeverity());

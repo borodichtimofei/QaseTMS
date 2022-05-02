@@ -1,14 +1,13 @@
 package tests.base;
 
 import lombok.extern.log4j.Log4j2;
-import org.openqa.selenium.NoSuchSessionException;
-import org.openqa.selenium.WebDriver;
-import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 import utils.AllureUtils;
 
 import java.util.concurrent.TimeUnit;
+
+import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
 @Log4j2
 public class TestListener implements ITestListener {
@@ -34,15 +33,7 @@ public class TestListener implements ITestListener {
     }
 
     private void takeScreenshot(ITestResult iTestResult) {
-        ITestContext context = iTestResult.getTestContext();
-        try {
-            WebDriver driver = (WebDriver) context.getAttribute("driver");
-            if (driver != null) {
-                log.info("Take screenshot test: {}", iTestResult.getName());
-                AllureUtils.takeScreenshot(driver);
-            }
-        } catch (NoSuchSessionException | IllegalStateException ignored) {
-        }
+        AllureUtils.takeScreenshot(getWebDriver());
     }
 
     private long getExecutionTime(ITestResult iTestResult) {

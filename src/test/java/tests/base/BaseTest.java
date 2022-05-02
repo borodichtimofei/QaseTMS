@@ -10,6 +10,7 @@ import steps.CaseSteps;
 import steps.LoginSteps;
 import steps.ProjectSteps;
 import steps.SuiteSteps;
+import utils.PropertyReader;
 
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
@@ -28,11 +29,15 @@ public class BaseTest {
     protected SuiteSteps suiteSteps;
     protected CaseSteps caseSteps;
 
-    public static final String USER = "borodich.timofei@gmail.com";
-    public static final String PASSWORD = "kazantip";
+
+    public String user;
+    public String password;
 
     @BeforeMethod(description = "Opening browser")
     public void setup(ITestContext context) {
+        user = System.getProperty("user", PropertyReader.getProperty("user"));
+        password = System.getProperty("password", PropertyReader.getProperty("password"));
+
         Configuration.baseUrl = "https://app.qase.io/";
         Configuration.browser = "chrome";
         Configuration.headless = true;
@@ -50,12 +55,12 @@ public class BaseTest {
         caseModal = new CaseModal();
         suiteSteps = new SuiteSteps();
         caseSteps = new CaseSteps();
-//
-//        context.setAttribute("driver", getWebDriver());
+
     }
 
     @AfterMethod(alwaysRun = true, description = "Closing browser")
     public void close() {
-        getWebDriver().quit();
+        if (getWebDriver() != null)
+            getWebDriver().quit();
     }
 }

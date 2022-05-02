@@ -11,11 +11,11 @@ public class SuiteTest extends BaseTest {
     @Test(description = "Create suite")
     public void createSuite() {
         Project project = ProjectsFactory.getProject();
-        loginSteps.login(USER, PASSWORD);
+        loginSteps.login(user, password);
         projectStep.createProject(project);
         Suite suite = Suite.builder()
-                .suiteName("Test")
-                .parentSuite("Project root")
+                .name("Test")
+                .parent("Project root")
                 .build();
         suiteSteps.createSuite(suite);
     }

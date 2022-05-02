@@ -10,8 +10,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class Suite {
-    String suiteName;
-    String parentSuite;
+    String name;
+    String parent;
     String description;
     String preconditions;
 }
+

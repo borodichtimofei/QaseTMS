@@ -29,11 +29,11 @@ public class NewProjectPage extends BasePage {
 
     @Step("Input project information: {project}")
     public NewProjectPage inputInfo(Project project) {
-        log.info("Input project name: {}, code project: {}, description {}", project.getProjectName(),
-                project.getProjectCode(), project.getProjectDescription());
-        $(INPUT_PROJECT_NAME).sendKeys(project.getProjectName());
-        $(INPUT_PROJECT_CODE).sendKeys(project.getProjectCode());
-        $(INPUT_PROJECT_DESCRIPTION).sendKeys(project.getProjectDescription());
+        log.info("Input project name: {}, code project: {}, description {}", project.getName(),
+                project.getCode(), project.getDescription());
+        $(INPUT_PROJECT_NAME).sendKeys(project.getName());
+        $(INPUT_PROJECT_CODE).sendKeys(project.getCode());
+        $(INPUT_PROJECT_DESCRIPTION).sendKeys(project.getDescription());
         return this;
     }
 

@@ -13,10 +13,10 @@ public class NewProjectTest extends BaseTest {
     @Test(description = "Create new Account")
     public void createNewProject() {
         Project project = ProjectsFactory.getProject();
-        loginSteps.login(USER, PASSWORD);
+        loginSteps.login(user, password);
         projectStep.createProject(project);
-        Assert.assertEquals(projectPage.name(), project.getProjectName());
+        Assert.assertEquals(projectPage.name(), project.getName());
         projectsList.openPage();
-        assertTrue(projectsList.validate(project.getProjectName()));
+        assertTrue(projectsList.validate(project.getName()));
     }
 }
